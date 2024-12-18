@@ -1,5 +1,5 @@
 # Generate full EPUB 
-pandoc --top-level-division=chapter --highlight-style zb.theme \
+pandoc --toc --top-level-division=chapter --highlight-style zb.theme \
 --css epub.css \
 -f gfm -t epub \
 -o build/ebook.epub \
