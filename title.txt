@@ -1,0 +1,11 @@
+---
+title: 
+- type: main
+  text: สูตรลัด Jaspr UI
+- type: subtitle
+  text: ทำเว็บไซต์สวยๆ ด้วย DaisyUI และ Jaspr
+author: อนุชิต ชโลธร
+language: th-TH
+toc: true
+toc-title: "สารบัญ" 
+...
