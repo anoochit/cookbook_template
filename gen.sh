@@ -1,3 +1,18 @@
+#!/bin/bash
+
+> build/combined.md
+
+# Loop through all .md files in the chapters directory
+for file in chapters/*.md; do
+    echo "Processing $file"
+    # Add a blank line before each chapter
+    echo "" >> build/combined.md
+    # Append the content of the current file
+    cat "$file" >> build/combined.md
+    # Add a blank line after each chapter
+    echo "" >> build/combined.md
+done
+
 # Generate full EPUB 
 pandoc --toc --top-level-division=chapter --highlight-style zb.theme \
 --css epub.css \
@@ -5,8 +20,7 @@ pandoc --toc --top-level-division=chapter --highlight-style zb.theme \
 -o build/ebook.epub \
 --epub-cover-image=images/cover.png \
 -i title.txt \
-chapters/chapter1.md \
-chapters/chapter2.md 
+build/combined.md
 
 #  Generate interior PDF
 ebook-convert build/ebook.epub build/ebook.pdf \

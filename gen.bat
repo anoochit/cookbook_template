@@ -1,3 +1,12 @@
+@REM combine 
+echo. > build\combined.md
+for %%f in (chapters\*.md) do (
+    echo Processing %%f
+    echo. >> build\combined.md
+    type "%%f" >> build\combined.md
+    echo. >> build\combined.md
+)
+
 @REM Generate full EPUB 
 pandoc --toc --top-level-division=chapter --highlight-style zb.theme ^
 --css epub.css ^
@@ -5,8 +14,7 @@ pandoc --toc --top-level-division=chapter --highlight-style zb.theme ^
 -o build/ebook.epub ^
 --epub-cover-image=images/cover.png ^
 -i title.txt ^
-chapters/chapter1.md ^
-chapters/chapter2.md 
+build/combined.md 
 
 @REM Generate interior PDF
 ebook-convert build/ebook.epub build/ebook.pdf ^
