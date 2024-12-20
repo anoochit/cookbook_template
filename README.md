@@ -6,8 +6,8 @@ A Copy-Paste publishing e-book template.
 
 CLI tools
 
- * Pandoc
- * Calibre CLI (aka ebook-convert)
+ * [Pandoc](https://pandoc.org/)
+ * [Calibre](https://calibre-ebook.com/) CLI (aka ebook-convert)
 
 Edit for your book info and style in these files
 
