@@ -19,192 +19,192 @@ h6 {
 h1.title {}
 
 h2.author {
-    font-size: 22pt;
+  font-size: 22pt;
 }
 
 h3.date {}
 
 nav#toc ol,
 nav#landmarks ol {
-    padding: 0;
-    margin-left: 1em;
+  padding: 0;
+  margin-left: 1em;
 }
 
 nav#toc ol li,
 nav#landmarks ol li {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 
 a.footnote-ref {
-    vertical-align: super;
+  vertical-align: super;
 }
 
 em,
 em em em,
 em em em em em {
-    font-style: italic;
+  font-style: italic;
 }
 
 em em,
 em em em em {
-    font-style: normal;
+  font-style: normal;
 }
 
 /* code{ white-space: pre-wrap; } */
 span.smallcaps {
-    font-variant: small-caps;
+  font-variant: small-caps;
 }
 
 span.underline {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 q {
-    quotes: "“" "”" "‘" "’";
+  quotes: "“" "”" "‘" "’";
 }
 
 div.column {
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
+  display: inline-block;
+  vertical-align: top;
+  width: 50%;
 }
 
 div.hanging-indent {
-    margin-left: 1.5em;
-    text-indent: -1.5em;
+  margin-left: 1.5em;
+  text-indent: -1.5em;
 }
 
 body {
-    font-family: "Bai Jamjuree", sans-serif;
-    /* margin: 5% 5% 20% 5%; */
-    margin: 0;
-    text-align: left;
-    font-size: 18pt;
-    line-height: 1.77;
+  font-family: "Bai Jamjuree", sans-serif;
+  /* margin: 5% 5% 20% 5%; */
+  margin: 0;
+  text-align: left;
+  font-size: 17pt;
+  line-height: 1.77;
 }
 
 p {
-    text-align: left; 
-    font-size: 18pt;
+  text-align: left;
+  font-size: 17pt;
 }
 
 h1 {
-    font-weight: 600;
-    text-align: left;
-    font-size: 22pt;
+  font-weight: 600;
+  text-align: left;
+  font-size: 22pt;
 }
 
 h2 {
-    font-weight: 600;
-    text-align: left;
-    font-size: 20pt;
+  font-weight: 600;
+  text-align: left;
+  font-size: 20pt;
 }
 
 h3 {
-    font-weight: 600;
-    text-align: left;
-    font-size: 18pt;
+  font-weight: 600;
+  text-align: left;
+  font-size: 18pt;
 }
 
 h4 {
-    font-weight: 600;
-    text-align: left;
-    font-size: 18pt;
+  font-weight: 600;
+  text-align: left;
+  font-size: 18pt;
 }
 
 h5 {
-    font-weight: 600;
-    text-align: left;
-    font-size: 18pt;
+  font-weight: 600;
+  text-align: left;
+  font-size: 18pt;
 }
 
-
 h1.title {
-    text-align: left;
+  text-align: left;
 }
 
 h1.main {
-    font-size: 42pt;
+  font-size: 42pt;
 }
 
 h1.subtitle {
-    font-size: 24pt;
+  font-size: 24pt;
 }
 
 
 p.author {
-    font-size: 22pt;
+  font-size: 22pt;
 }
 
 code {
-    font-family: "DejaVu Sans Mono", monospace;
-    background-color: #eeeeee;
-    font-size: 90%;
-    line-height: 1.77;
-    white-space: pre-wrap;
+  font-family: "DejaVu Sans Mono", monospace;
+  background-color: #eeeeee;
+  font-size: 90%;
+  line-height: 1.77;
+  white-space: pre-wrap;
 }
 
 pre {
-    font-family: "DejaVu Sans Mono", monospace;
-    padding: 1em;
-    overflow: auto;
-    font-size: 90%;
-    line-height: 1.77;
-    border-radius: 0.5em;
-    background-color: #eeeeee;
-    white-space: pre-wrap;
+  font-family: "DejaVu Sans Mono", monospace;
+  padding: 1em;
+  overflow: auto;
+  font-size: 90%;
+  line-height: 1.77;
+  border-radius: 0.5em;
+  background-color: #eeeeee;
+  white-space: pre-wrap;
 }
 
 table {
-    border-collapse: collapse;
-    font-size: 95%;
-    width: 100%;
+  border-collapse: collapse;
+  font-size: 95%;
+  width: 100%;
 }
 
 th {
-    text-align: center;
-    background-color: #eeeeee;
+  text-align: center;
+  background-color: #eeeeee;
 }
 
 th {
-    font-weight: 500;
-    padding: 0.5em;
+  font-weight: 500;
+  padding: 0.5em;
 }
 
 td {
-    padding: 0.5em;
+  padding: 0.5em;
 }
 
 table,
 th,
 td {
-    border: 0.02em solid #bbbbbb;
+  border: 0.02em solid #bbbbbb;
 }
 
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 blockquote {
-    border-style: solid solid solid solid;
-    border-color: #a41434;
-    border-width: medium;
-    border-radius: 0.5em;
-    padding-left: 1em;
-    padding-right: 1em;
-    background-color: #fcecf4;
+  border-style: solid solid solid solid;
+  border-color: #a41434;
+  border-width: medium;
+  border-radius: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  background-color: #fcecf4;
 }
 
 img {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 @media screen {
-    /* Workaround for iBooks issue; see #6242 */
-    .sourceCode {
-        overflow: visible !important;
-        white-space: pre-wrap !important;
-    }
+
+  /* Workaround for iBooks issue; see #6242 */
+  .sourceCode {
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+  }
 }

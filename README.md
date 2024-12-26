@@ -11,7 +11,7 @@ CLI tools
 
 Edit for your book info and style in these files
 
- * [title.txt](/title.txt) is for EPUB metadata
+ * [epub.yaml](/epub.yaml) is for EPUB metadata
  * [epub.css](/epub.css) is EPUB document style
  * [zb.theme](/zb.theme) is a syntax highlight style for source code
  * [gen.sh](/gen.sh) and [gen.bat](/gen.bat) is a script for generate book
