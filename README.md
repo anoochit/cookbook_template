@@ -37,7 +37,7 @@ You might use mmdc from mermaid-cli to pre process markdown document to generate
 npm install -g @mermaid-js/mermaid-cli
 ```
 
-There is 2 usecases:
+There are 2 usecases:
 
 1. Convert Mermaid diagrams into images (No Markdown document)
 
