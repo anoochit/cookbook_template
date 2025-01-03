@@ -28,3 +28,28 @@ OR
 ```cmd
 gen.bat
 ```
+
+## Mermaid diagrame
+
+You might use mmdc from mermaid-cli to pre process markdown document to generate diagrame image and new markdown file.
+
+```bash
+npm install -g @mermaid-js/mermaid-cli
+```
+
+There is 2 usecases:
+
+1. Convert Mermaid diagrams into images (No Markdown document)
+
+```bash
+mmdc -i <MARKDOWN_DOC_FILENAME>.md -o IMAGE_NAME_PREFIX.png
+```
+
+2. Convert Mermaid diagrams into images with Markdown document using them
+
+```
+mmdc -i <MARKDOWN_DOC_FILENAME>.md --outputFormat=png \
+     -o <ANOTHER_MARKDOWN_DOC_FILENAME>.md
+```
+
+Or using pandoc filter: https://github.com/raghur/mermaid-filter
