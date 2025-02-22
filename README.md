@@ -20,13 +20,7 @@ Edit for your book info and style in these files
 Generate e-book files
 
 ```bash
-gen.sh
-```
-
-OR
-
-```cmd
-gen.bat
+gen.ps1
 ```
 
 ## Mermaid diagrame

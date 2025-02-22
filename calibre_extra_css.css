@@ -1,0 +1,34 @@
+.calibre-pdf-toc table {
+    width: 100%
+}
+
+.calibre-pdf-toc table tr td:last-of-type {
+    font-size: 15pt;
+    line-height: 1.77;
+    text-align: right;
+
+}
+
+.calibre-pdf-toc .level-0 {
+    font-weight: 600;
+    font-size: 15pt;
+    line-height: 1.77;
+}
+
+.calibre-pdf-toc .level-1 {
+    font-size: 15pt;
+    line-height: 1.77;
+}
+
+.calibre-pdf-toc .level-2 {
+    font-size: 15pt;
+    line-height: 1.77;
+}
+
+.calibre-pdf-toc .level-1 td:first-of-type {
+    padding-left: 1.4em;
+}
+
+.calibre-pdf-toc .level-2 td:first-of-type {
+    padding-left: 2.2em;
+}

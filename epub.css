@@ -1,191 +1,17 @@
 /* This defines styles and classes used in the book */
-/* body { margin: 5%; text-align: justify; font-size: medium; }
-code { font-family: monospace; }
-h1 { text-align: left; }
-h2 { text-align: left; }
-h3 { text-align: left; } */
-/* h4 {
-    text-align: left;
-}
-
-h5 {
-    text-align: left;
-}
-
-h6 {
-    text-align: left;
-} */
-
-h1.title {}
-
-h2.author {
-  font-size: 22pt;
-}
-
-h3.date {}
-
-nav#toc ol,
-nav#landmarks ol {
-  padding: 0;
-  margin-left: 1em;
-}
-
-nav#toc ol li,
-nav#landmarks ol li {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-a.footnote-ref {
-  vertical-align: super;
-}
-
-em,
-em em em,
-em em em em em {
-  font-style: italic;
-}
-
-em em,
-em em em em {
-  font-style: normal;
-}
-
+/* /* body { margin: 5%; text-align: justify; font-size: medium; } */
+/* /* code { font-family: monospace; }   */
 /* code{ white-space: pre-wrap; } */
-span.smallcaps {
-  font-variant: small-caps;
+@media screen {
+  /* Workaround for iBooks issue; see #6242 */
+  .sourceCode {
+    overflow: visible !important;
+    white-space: pre-wrap !important;
+  }
 }
-
-span.underline {
-  text-decoration: underline;
-}
-
-q {
-  quotes: "“" "”" "‘" "’";
-}
-
-div.column {
-  display: inline-block;
-  vertical-align: top;
-  width: 50%;
-}
-
-div.hanging-indent {
-  margin-left: 1.5em;
-  text-indent: -1.5em;
-}
-
-body {
-  font-family: "Bai Jamjuree", sans-serif;
-  /* margin: 5% 5% 20% 5%; */
-  margin: 0;
-  text-align: left;
-  font-size: 17pt;
-  line-height: 1.77;
-}
-
-p {
-  text-align: left;
-  font-size: 17pt;
-}
-
-h1 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 22pt;
-}
-
-h2 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 20pt;
-}
-
-h3 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 18pt;
-}
-
-h4 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 18pt;
-}
-
-h5 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 18pt;
-}
-
-h1.title {
-  text-align: left;
-}
-
-h1.main {
-  font-size: 42pt;
-}
-
-h1.subtitle {
-  font-size: 24pt;
-}
-
-
-p.author {
-  font-size: 22pt;
-}
-
-code {
-  font-family: "DejaVu Sans Mono", monospace;
-  background-color: #eeeeee;
-  font-size: 90%;
-  line-height: 1.77;
-  white-space: pre-wrap;
-}
-
-pre {
-  font-family: "DejaVu Sans Mono", monospace;
-  padding: 1em;
-  overflow: auto;
-  font-size: 90%;
-  line-height: 1.77;
-  border-radius: 0.5em;
-  background-color: #eeeeee;
-  white-space: pre-wrap;
-}
-
-table {
-  border-collapse: collapse;
-  font-size: 95%;
-  width: 100%;
-}
-
-th {
-  text-align: center;
-  background-color: #eeeeee;
-}
-
-th {
-  font-weight: 500;
-  padding: 0.5em;
-}
-
-td {
-  padding: 0.5em;
-}
-
-table,
-th,
-td {
-  border: 0.02em solid #bbbbbb;
-}
-
 a {
   text-decoration: none;
 }
-
 blockquote {
   border-style: solid solid solid solid;
   border-color: #a41434;
@@ -195,16 +21,143 @@ blockquote {
   padding-right: 1em;
   background-color: #fcecf4;
 }
-
+body, p {
+  font-family: "Bai Jamjuree", sans-serif;
+  /* margin: 5% 5% 20% 5%; */
+  /* margin: 0; */
+  margin-bottom: 0.5em;
+  text-align: left;
+  font-size: 20pt;
+  line-height: 1.77;
+}
+pre code {
+  font-family: "DejaVu Sans Mono", monospace;
+  font-size: 18pt; 
+  line-height: 1.0;
+  /* white-space: pre-wrap; */
+}
+figcaption, figure {
+  /* font-size: 18pt; */
+  /* padding: 0.5em; */
+  text-align: center;
+}
+h1 {
+  text-align: left;
+  font-weight: 600;
+  text-align: left;
+  font-size: 24pt;
+}
+h2 {
+  font-weight: 600;
+  text-align: left;
+  font-size: 22pt;
+}
+h3 {
+  font-weight: 600;
+  text-align: left;
+  font-size: 21pt;
+}
+h4 {
+  font-weight: 600;
+  text-align: left;
+  font-size: 20pt;
+}
+h5 {
+  font-weight: 500;
+  text-align: left;
+  font-size: 20pt;
+}
+h6 {
+  font-weight: 500;
+  text-align: left;
+  font-size: 20pt;
+}
 img {
   max-width: 100%;
 }
-
-@media screen {
-
-  /* Workaround for iBooks issue; see #6242 */
-  .sourceCode {
-    overflow: visible !important;
-    white-space: pre-wrap !important;
-  }
+pre {
+  /*  font-family: "DejaVu Sans Mono", monospace;*/
+  padding: 1em;
+  overflow: auto;
+  /* font-size: 16pt;
+  line-height: 1.55; */
+  border-radius: 0.5em;
+  background-color: #eee;
+  /* white-space: pre-wrap; */
+}
+q {
+  quotes: "“" "”" "‘" "’";
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+table, td, th {
+  border: 0.02em solid #bbb;
+}
+table {
+  table-layout: auto;
+  width: 100%;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+td {
+  padding: 0.5em;
+  vertical-align: top;
+  font-size: 18pt;
+  white-space: pre-wrap;
+}
+th {
+  text-align: center;
+  background-color: #eee;
+  font-weight: 500;
+  font-size: 18pt;
+  padding: 0.5em;
+}
+a.footnote-ref {
+  vertical-align: super;
+}
+div.column {
+  display: inline-block;
+  vertical-align: top;
+  /* width: 50%; */
+}
+div.hanging-indent {
+  margin-left: 1.5em;
+  text-indent: -1.5em;
+}
+h1.main {
+  font-size: 42pt;
+}
+h1.subtitle {
+  font-size: 24pt;
+  line-height: 1.55;
+}
+h1.title {
+  text-align: left;
+}
+h2.author {
+  font-size: 22pt;
+  line-height: 1.55;
+}
+h3.date {
+  font-weight: 500;
+  text-align: left;
+  font-size: 20pt;
+  line-height: 1.77;
+}
+p.author {
+  font-size: 22pt;
+  line-height: 1.77;
+}
+span.smallcaps {
+  font-variant: small-caps;
+}
+span.underline {
+  text-decoration: underline;
+}
+nav#landmarks ol li, nav#toc ol li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }

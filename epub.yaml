@@ -1,7 +1,13 @@
 ---
-title: "สูตรลัด Bloc"
-author: อนุชิต ชโลธร
-language: th-TH
+title:
+- type: main
+  text: "GORM"
+- type: subtitle
+  text: "คู่มือใช้งานฐานข้อมูลใน Go สำหรับมือใหม่"
+author: "อนุชิต ชโลธร"
+language: "th-TH"
 toc: true
-toc-title: "สารบัญ" 
+toc-title: "สารบัญ"
+edition: 1
+# date: อัปเดตครั้งที่ 2
 ---

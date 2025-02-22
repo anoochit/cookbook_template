@@ -1,4 +1,4 @@
-# Chapter 1 : แนะนำ
+# Chapter 1 : Introduction
 
 ## Title 1
 
