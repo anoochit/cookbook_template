@@ -3,15 +3,18 @@
 /* /* code { font-family: monospace; }   */
 /* code{ white-space: pre-wrap; } */
 @media screen {
+
   /* Workaround for iBooks issue; see #6242 */
   .sourceCode {
     overflow: visible !important;
     white-space: pre-wrap !important;
   }
 }
+
 a {
   text-decoration: none;
 }
+
 blockquote {
   border-style: solid solid solid solid;
   border-color: #a41434;
@@ -21,7 +24,9 @@ blockquote {
   padding-right: 1em;
   background-color: #fcecf4;
 }
-body, p {
+
+body,
+p {
   font-family: "Bai Jamjuree", sans-serif;
   /* margin: 5% 5% 20% 5%; */
   /* margin: 0; */
@@ -30,83 +35,105 @@ body, p {
   font-size: 20pt;
   line-height: 1.77;
 }
+
 pre code {
   font-family: "DejaVu Sans Mono", monospace;
-  font-size: 18pt; 
-  line-height: 1.0;
-  /* white-space: pre-wrap; */
+  font-size: 16pt;
+  /* line-height: 1.0; */
 }
-figcaption, figure {
-  /* font-size: 18pt; */
+
+figure img {
+  overflow: auto;
+  border-radius: 0.25em;
+  border: 0.02em solid #bbb;
+}
+
+figcaption,
+figure {
+  font-size: 16pt;
   /* padding: 0.5em; */
   text-align: center;
 }
+
 h1 {
   text-align: left;
   font-weight: 600;
   text-align: left;
   font-size: 24pt;
 }
+
 h2 {
   font-weight: 600;
   text-align: left;
   font-size: 22pt;
 }
+
 h3 {
   font-weight: 600;
   text-align: left;
-  font-size: 21pt;
+  font-size: 20pt;
 }
+
 h4 {
   font-weight: 600;
   text-align: left;
   font-size: 20pt;
 }
+
 h5 {
   font-weight: 500;
   text-align: left;
   font-size: 20pt;
 }
+
 h6 {
   font-weight: 500;
   text-align: left;
   font-size: 20pt;
 }
+
 img {
   max-width: 100%;
 }
+
 pre {
-  /*  font-family: "DejaVu Sans Mono", monospace;*/
   padding: 1em;
-  overflow: auto;
-  /* font-size: 16pt;
-  line-height: 1.55; */
-  border-radius: 0.5em;
+  overflow-x: auto;
+  border-radius: 0.25em;
   background-color: #eee;
-  /* white-space: pre-wrap; */
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
+
 q {
   quotes: "“" "”" "‘" "’";
 }
+
 table {
   border-collapse: collapse;
   width: 100%;
 }
-table, td, th {
+
+table,
+td,
+th {
   border: 0.02em solid #bbb;
 }
+
 table {
   table-layout: auto;
   width: 100%;
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
 td {
   padding: 0.5em;
   vertical-align: top;
   font-size: 18pt;
   white-space: pre-wrap;
 }
+
 th {
   text-align: center;
   background-color: #eee;
@@ -114,49 +141,59 @@ th {
   font-size: 18pt;
   padding: 0.5em;
 }
+
 a.footnote-ref {
   vertical-align: super;
 }
+
 div.column {
   display: inline-block;
   vertical-align: top;
   /* width: 50%; */
 }
+
 div.hanging-indent {
   margin-left: 1.5em;
   text-indent: -1.5em;
 }
+
 h1.main {
   font-size: 42pt;
 }
+
 h1.subtitle {
   font-size: 24pt;
-  line-height: 1.55;
 }
+
 h1.title {
   text-align: left;
 }
+
 h2.author {
   font-size: 22pt;
-  line-height: 1.55;
 }
+
 h3.date {
   font-weight: 500;
   text-align: left;
   font-size: 20pt;
-  line-height: 1.77;
 }
+
 p.author {
   font-size: 22pt;
   line-height: 1.77;
 }
+
 span.smallcaps {
   font-variant: small-caps;
 }
+
 span.underline {
   text-decoration: underline;
 }
-nav#landmarks ol li, nav#toc ol li {
+
+nav#landmarks ol li,
+nav#toc ol li {
   list-style-type: none;
   margin: 0;
   padding: 0;
