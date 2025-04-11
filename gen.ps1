@@ -127,3 +127,6 @@ Write-Host "Optimize PDFs..."
 # Make PDF sample book for 20 pages
 Write-Host "Make PDF sample book for 20 pages..."
 pdfcpu trim -pages 1-20 .\build\ebook.pdf .\build\sample_ebook.pdf
+
+# delete all files in build directory except for ebook.pdf, sample_ebook.pdf, ebook_epub3.epub and sample_ebook_epub3.epub
+Get-ChildItem -Path "build\*" | Where-Object { $_.Name -notmatch "ebook\.pdf|sample_ebook\.pdf|ebook_epub3\.epub|sample_ebook_epub3\.epub" } | Remove-Item -Force
