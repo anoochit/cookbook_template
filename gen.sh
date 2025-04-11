@@ -114,3 +114,7 @@ echo "Optimize PDFs..."
 # Make PDF sample book for 20 pages
 echo "Make PDF sample book for 20 pages..."
 pdfcpu trim -pages 1-20 "./build/ebook.pdf" "./build/sample_ebook.pdf"
+
+echo "All done!"
+echo "Build completed successfully!"
+echo "You can find the output files in the build directory."
