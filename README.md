@@ -8,6 +8,7 @@ CLI tools
 
  * [Pandoc](https://pandoc.org/)
  * [Calibre](https://calibre-ebook.com/) CLI (aka ebook-convert)
+ * [Pdfcpu](https://pdfcpu.io/)
 
 Edit for your book info and style in these files
 
