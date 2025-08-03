@@ -7,7 +7,7 @@ This directory contains a template for creating and publishing e-books (EPUB and
 *   `chapters/`: This directory holds the book's content, with each chapter as a separate Markdown file.
 *   `images/`: Contains image assets for the book, such as the cover (`cover.png`, `cover.pdf`) and back cover (`back_cover.pdf`).
 *   `epub.yaml`: The main configuration file for the e-book's metadata, including title, author, and language.
-*   `epub2.css` & `calibre_extra_css.css`: These files define the styling (CSS) for the EPUB and PDF outputs, controlling the appearance of text, headings, and other elements.
+*   `epub.css` & `calibre_extra_css.css`: These files define the styling (CSS) for the EPUB and PDF outputs, controlling the appearance of text, headings, and other elements.
 *   `zb.theme`: A JSON file that specifies the syntax highlighting theme for code blocks within the e-book.
 *   `gen.ps1` (for Windows) & `gen.sh` (for Linux/macOS): These are the build scripts that automate the entire e-book generation process.
 *   `build/`: This directory is where the final e-book files (`.epub`, `.pdf`) are generated. It is created when the generation script is run.
@@ -27,7 +27,7 @@ Before generating an e-book, you must have the following command-line tools inst
 
 1.  **Write Content:** Add or edit the Markdown files in the `chapters/` directory. The files are processed in alphanumeric order.
 2.  **Update Metadata:** Modify `epub.yaml` to set the book's title, author, and other details.
-3.  **Customize Style:** (Optional) Adjust the CSS in `epub2.css` and `calibre_extra_css.css` to change the book's appearance.
+3.  **Customize Style:** (Optional) Adjust the CSS in `epub.css` and `calibre_extra_css.css` to change the book's appearance.
 4.  **Run the Script:** Execute the generation script from the project root.
 
     **On Windows:**
