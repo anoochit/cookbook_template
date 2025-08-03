@@ -50,7 +50,7 @@ You can customize your e-book by editing the following files:
 You can use the Gemini CLI to help draft content. For example, to create a new chapter about FastAPI:
 
 ```bash
-gemini "write a chapter about getting started with FastAPI" > chapters/03_fastapi_getting_started.md
+gemini -p "write a chapter about getting started with FastAPI" > chapters/03_fastapi_getting_started.md
 ```
 
 ### Using Mermaid for Diagrams
