@@ -7,7 +7,9 @@
   /* Workaround for iBooks issue; see #6242 */
   .sourceCode {
     overflow: visible !important;
+    overflow-wrap: break-word;
     white-space: pre-wrap !important;
+    word-break: break-all;
   }
 }
 
@@ -15,43 +17,66 @@ a {
   text-decoration: none;
 }
 
+strong {
+  font-weight: 600;
+}
+
 blockquote {
-  border-style: solid solid solid solid;
-  border-color: #a41434;
-  border-width: medium;
-  border-radius: 0.5em;
-  padding-left: 1em;
-  padding-right: 1em;
-  background-color: #fcecf4;
+  padding: 12px;
+  line-height: 0;
+  overflow-x: auto;
+  border-radius: 12px;
+  background-color: #eee;
+  margin: 0;
 }
 
 body,
-p {
-  font-family: "Bai Jamjuree", sans-serif;
+p,
+code {
+  font-family: "Bai Jamjuree", "DejaVu Sans Mono";
   /* margin: 5% 5% 20% 5%; */
   /* margin: 0; */
-  margin-bottom: 0.5em;
+  margin-bottom: 8px;
   text-align: left;
-  font-size: 20pt;
+  font-size: 18pt;
   line-height: 1.77;
+  text-indent: 0;
+}
+
+li {
+  text-indent: 0;
+  margin: 0 0 0 0;
+}
+
+p b {
+  font-weight: 500;
+}
+
+code {
+  font-family: "DejaVu Sans Mono";
+  font-size: 17pt;
 }
 
 pre code {
-  font-family: "DejaVu Sans Mono", monospace;
   font-size: 16pt;
-  /* line-height: 1.0; */
+  line-height: 1.50;
+  text-indent: 0;
+  margin: 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap;
 }
 
 figure img {
   overflow: auto;
-  border-radius: 0.25em;
-  border: 0.02em solid #bbb;
+  border-radius: 8px;
+  border: 1px solid #ccc;
 }
 
 figcaption,
 figure {
-  font-size: 16pt;
-  /* padding: 0.5em; */
+  /* font-size: 16pt; */
+  /* padding: 8px; */
   text-align: center;
 }
 
@@ -59,37 +84,43 @@ h1 {
   text-align: left;
   font-weight: 600;
   text-align: left;
-  font-size: 24pt;
+  font-size: 22pt;
+  text-indent: 0pt;
 }
 
 h2 {
   font-weight: 600;
   text-align: left;
-  font-size: 22pt;
+  font-size: 20pt;
+  text-indent: 0pt;
 }
 
 h3 {
   font-weight: 600;
   text-align: left;
-  font-size: 20pt;
+  font-size: 18pt;
+  text-indent: 0pt;
 }
 
 h4 {
   font-weight: 600;
   text-align: left;
-  font-size: 20pt;
+  font-size: 18pt;
+  text-indent: 0pt;
 }
 
 h5 {
   font-weight: 500;
   text-align: left;
-  font-size: 20pt;
+  font-size: 18pt;
+  text-indent: 0pt;
 }
 
 h6 {
   font-weight: 500;
   text-align: left;
-  font-size: 20pt;
+  font-size: 18pt;
+  text-indent: 0pt;
 }
 
 img {
@@ -97,12 +128,12 @@ img {
 }
 
 pre {
-  padding: 1em;
+  padding: 16px;
   overflow-x: auto;
-  border-radius: 0.25em;
+  border-radius: 12px;
   background-color: #eee;
+  text-indent: 0pt;
   white-space: pre-wrap;
-  word-wrap: break-word;
 }
 
 q {
@@ -117,20 +148,20 @@ table {
 table,
 td,
 th {
-  border: 0.02em solid #bbb;
+  border: 1px solid #bbb;
 }
 
 table {
   table-layout: auto;
   width: 100%;
-  margin-top: 1em;
-  margin-bottom: 1em;
+  margin-top: 16px;
+  margin-bottom: 16px;
 }
 
 td {
-  padding: 0.5em;
+  padding: 8px;
   vertical-align: top;
-  font-size: 18pt;
+  font-size: 14pt;
   white-space: pre-wrap;
 }
 
@@ -138,8 +169,8 @@ th {
   text-align: center;
   background-color: #eee;
   font-weight: 500;
-  font-size: 18pt;
-  padding: 0.5em;
+  font-size: 14pt;
+  padding: 8px;
 }
 
 a.footnote-ref {
@@ -158,7 +189,7 @@ div.hanging-indent {
 }
 
 h1.main {
-  font-size: 42pt;
+  font-size: 38pt;
 }
 
 h1.subtitle {
@@ -170,7 +201,7 @@ h1.title {
 }
 
 h2.author {
-  font-size: 22pt;
+  font-size: 20pt;
 }
 
 h3.date {
@@ -180,7 +211,7 @@ h3.date {
 }
 
 p.author {
-  font-size: 22pt;
+  font-size: 20pt;
   line-height: 1.77;
 }
 

@@ -38,7 +38,7 @@ foreach ($f in Get-ChildItem -Path "chapters\*.md") {
 
 # Build EPUB
 Write-Host "Building EPUB..."
-pandoc -o "build\ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub.css" -i "epub.yaml" "build\epub_input.md"
+pandoc -o "build\ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub2.css" -i "epub.yaml" "build\epub_input.md"
 
 # Build EPUB3
 Write-Host "Building EPUB3..."
@@ -46,28 +46,28 @@ ebook-convert "build\ebook.epub" "build\ebook_epub3.epub" --epub-version 3 --emb
 
 # Build Sample EPUB
 Write-Host "Building EPUB..."
-pandoc -o "build\sample_ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub.css" -i "epub.yaml" "build\sample_epub_input.md"
+pandoc -o "build\sample_ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub2.css" -i "epub.yaml" "build\sample_epub_input.md"
 
 
 # Build Sample EPUB3
 Write-Host "Building EPUB3..."
 ebook-convert "build\sample_ebook.epub" "build\sample_ebook_epub3.epub" --epub-version 3 --embed-all-fonts
 
-# Build preface EPUB
+# Build preface EPUB preface
 Write-Host "Building preface EPUB..."
-pandoc -o "build\preface.epub" --top-level-division=chapter --css="epub.css" -i "epub.yaml" "chapters\00_preface.md"
+pandoc -o "build\preface.epub" --top-level-division=chapter --css="epub2.css" -i "epub.yaml" "chapters\00_preface.md"
 
-# Build content EPUB
+# Build content EPUB content
 Write-Host "Building content EPUB..."
-pandoc -o "build\output.epub" --top-level-division=chapter --css="epub.css" "build\pdf_input.md"
+pandoc -o "build\output.epub" --top-level-division=chapter --css="epub2.css" "build\pdf_input.md"
 
 # Build preface PDF
 Write-Host "Building preface PDF..."
-ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 20 --pdf-mono-font-size 20 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
+ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 22 --pdf-mono-font-size 16 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
 
 # Build content PDF
 Write-Host "Building content PDF..."
-ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "สารบัญ" --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 20 --pdf-mono-font-size 20 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
+ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "Table of Contents" --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 22 --pdf-mono-font-size 16 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
 
 # # Split page content and toc
 # Write-Host "Splitting content and TOC..."
@@ -124,13 +124,12 @@ $pageNumber = Read-Host "Enter the page number to remove"
 pdfcpu pages rem -pages $pageNumber ".\build\ebook.pdf"
 Write-Host "Optimize PDFs..."
 
-# Make PDF sample book for 20 pages
-Write-Host "Make PDF sample book for 20 pages..."
-pdfcpu trim -pages 1-20 .\build\ebook.pdf .\build\sample_ebook.pdf
+# Make PDF sample book for 5 pages
+Write-Host "Make PDF sample book for 40 pages..."
+pdfcpu trim -pages 1-5 .\build\ebook.pdf .\build\sample_ebook.pdf
 
 # delete all files in build directory except for ebook.pdf, sample_ebook.pdf, ebook_epub3.epub and sample_ebook_epub3.epub
 Get-ChildItem -Path "build\*" | Where-Object { $_.Name -notmatch "ebook\.pdf|sample_ebook\.pdf|ebook_epub3\.epub|sample_ebook_epub3\.epub" } | Remove-Item -Force
-
 
 Write-Host "All done!"
 Write-Host "Build completed successfully!"

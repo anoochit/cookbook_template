@@ -1,13 +1,13 @@
 ---
 title:
-- type: main
-  text: "GORM"
-- type: subtitle
-  text: "คู่มือใช้งานฐานข้อมูลใน Go สำหรับมือใหม่"
-author: "อนุชิต ชโลธร"
-language: "th-TH"
+  - type: main
+    text: "FastAPI Cookbook"
+  - type: subtitle
+    text: "Build High-Performance APIs with Python and FastAPI"
+author: "Angela Nguyen"
+language: "en-US"
 toc: true
-toc-title: "สารบัญ"
+toc-title: "Table of Contents"
 edition: 1
 # date: อัปเดตครั้งที่ 2
 ---

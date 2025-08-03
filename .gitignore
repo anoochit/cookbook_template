@@ -1,0 +1,4 @@
+/build/*
+.env
+tmp
+secrets.toml
