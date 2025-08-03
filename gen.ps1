@@ -38,7 +38,7 @@ foreach ($f in Get-ChildItem -Path "chapters\*.md") {
 
 # Build EPUB
 Write-Host "Building EPUB..."
-pandoc -o "build\ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub2.css" -i "epub.yaml" "build\epub_input.md"
+pandoc -o "build\ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub.css" -i "epub.yaml" "build\epub_input.md"
 
 # Build EPUB3
 Write-Host "Building EPUB3..."
@@ -46,7 +46,7 @@ ebook-convert "build\ebook.epub" "build\ebook_epub3.epub" --epub-version 3 --emb
 
 # Build Sample EPUB
 Write-Host "Building EPUB..."
-pandoc -o "build\sample_ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub2.css" -i "epub.yaml" "build\sample_epub_input.md"
+pandoc -o "build\sample_ebook.epub" --top-level-division=chapter --epub-cover-image="images\cover.png" --css="epub.css" -i "epub.yaml" "build\sample_epub_input.md"
 
 
 # Build Sample EPUB3
@@ -55,11 +55,11 @@ ebook-convert "build\sample_ebook.epub" "build\sample_ebook_epub3.epub" --epub-v
 
 # Build preface EPUB preface
 Write-Host "Building preface EPUB..."
-pandoc -o "build\preface.epub" --top-level-division=chapter --css="epub2.css" -i "epub.yaml" "chapters\00_preface.md"
+pandoc -o "build\preface.epub" --top-level-division=chapter --css="epub.css" -i "epub.yaml" "chapters\00_preface.md"
 
 # Build content EPUB content
 Write-Host "Building content EPUB..."
-pandoc -o "build\output.epub" --top-level-division=chapter --css="epub2.css" "build\pdf_input.md"
+pandoc -o "build\output.epub" --top-level-division=chapter --css="epub.css" "build\pdf_input.md"
 
 # Build preface PDF
 Write-Host "Building preface PDF..."
