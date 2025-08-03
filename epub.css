@@ -1,60 +1,66 @@
-/* This defines styles and classes used in the book */
-/* /* body { margin: 5%; text-align: justify; font-size: medium; } */
-/* /* code { font-family: monospace; }   */
-/* code{ white-space: pre-wrap; } */
-@media screen {
+/* === EPUB Stylesheet === */
 
-  /* Workaround for iBooks issue; see #6242 */
-  .sourceCode {
-    overflow: visible !important;
-    overflow-wrap: break-word;
-    white-space: pre-wrap !important;
-    word-break: break-all;
-  }
+/* --- Global & Typography --- */
+body, p {
+  font-family: "Bai Jamjuree", "DejaVu Sans Mono", sans-serif;
+  font-size: 18pt;
+  line-height: 1.77;
+  text-align: left;
+  text-indent: 0;
+  margin-bottom: 8px;
 }
 
 a {
   text-decoration: none;
 }
 
-strong {
+strong, p b {
   font-weight: 600;
-}
-
-blockquote {
-  padding: 12px;
-  line-height: 0;
-  overflow-x: auto;
-  border-radius: 12px;
-  background-color: #eee;
-  margin: 0;
-}
-
-body,
-p,
-code {
-  font-family: "Bai Jamjuree", "DejaVu Sans Mono";
-  /* margin: 5% 5% 20% 5%; */
-  /* margin: 0; */
-  margin-bottom: 8px;
-  text-align: left;
-  font-size: 18pt;
-  line-height: 1.77;
-  text-indent: 0;
 }
 
 li {
   text-indent: 0;
-  margin: 0 0 0 0;
+  margin: 0;
 }
 
-p b {
-  font-weight: 500;
+q {
+  quotes: "“" "”" "‘" "’";
 }
 
+/* --- Headings --- */
+h1, h2, h3, h4, h5, h6 {
+  text-align: left;
+  text-indent: 0pt;
+  font-weight: 600;
+}
+
+h1 { font-size: 22pt; }
+h2 { font-size: 20pt; }
+h3, h4 { font-size: 18pt; }
+h5, h6 { font-size: 18pt; font-weight: 500; }
+
+/* --- Special Title Styles --- */
+h1.main { font-size: 38pt; }
+h1.subtitle { font-size: 24pt; }
+h1.title { text-align: left; }
+h2.author { font-size: 20pt; }
+h3.date { font-size: 20pt; font-weight: 500; }
+p.author { font-size: 20pt; line-height: 1.77; }
+
+/* --- Code Blocks --- */
 code {
-  font-family: "DejaVu Sans Mono";
+  font-family: "DejaVu Sans Mono", monospace;
   font-size: 17pt;
+  white-space: pre-wrap;
+}
+
+pre {
+  background-color: #eee;
+  border-radius: 12px;
+  padding: 16px;
+  overflow-x: auto;
+  text-indent: 0pt;
+  white-space: pre-wrap;
 }
 
 pre code {
@@ -64,123 +70,72 @@ pre code {
   margin: 0;
   word-wrap: break-word;
   word-break: break-word;
-  white-space: pre-wrap;
 }
 
-figure img {
-  overflow: auto;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+/* iBooks rendering fix */
+@media screen {
+  .sourceCode {
+    overflow: visible !important;
+    overflow-wrap: break-word;
+    white-space: pre-wrap !important;
+    word-break: break-all;
+  }
 }
 
-figcaption,
-figure {
-  /* font-size: 16pt; */
-  /* padding: 8px; */
+/* --- Blockquotes & Figures --- */
+blockquote {
+  background-color: #eee;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 0;
+  overflow-x: auto;
+  line-height: 1.5;
+}
+
+figure, figcaption {
   text-align: center;
-}
-
-h1 {
-  text-align: left;
-  font-weight: 600;
-  text-align: left;
-  font-size: 22pt;
-  text-indent: 0pt;
-}
-
-h2 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 20pt;
-  text-indent: 0pt;
-}
-
-h3 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 18pt;
-  text-indent: 0pt;
-}
-
-h4 {
-  font-weight: 600;
-  text-align: left;
-  font-size: 18pt;
-  text-indent: 0pt;
-}
-
-h5 {
-  font-weight: 500;
-  text-align: left;
-  font-size: 18pt;
-  text-indent: 0pt;
-}
-
-h6 {
-  font-weight: 500;
-  text-align: left;
-  font-size: 18pt;
-  text-indent: 0pt;
 }
 
 img {
   max-width: 100%;
 }
 
-pre {
-  padding: 16px;
-  overflow-x: auto;
-  border-radius: 12px;
-  background-color: #eee;
-  text-indent: 0pt;
-  white-space: pre-wrap;
+figure img {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: auto;
 }
 
-q {
-  quotes: "“" "”" "‘" "’";
-}
-
+/* --- Tables --- */
 table {
   border-collapse: collapse;
   width: 100%;
+  margin: 16px 0;
+  table-layout: auto;
 }
 
-table,
-td,
-th {
+table, th, td {
   border: 1px solid #bbb;
 }
 
-table {
-  table-layout: auto;
-  width: 100%;
-  margin-top: 16px;
-  margin-bottom: 16px;
-}
-
-td {
-  padding: 8px;
-  vertical-align: top;
-  font-size: 14pt;
-  white-space: pre-wrap;
-}
-
 th {
-  text-align: center;
   background-color: #eee;
   font-weight: 500;
   font-size: 14pt;
+  text-align: center;
   padding: 8px;
 }
 
-a.footnote-ref {
-  vertical-align: super;
+td {
+  font-size: 14pt;
+  padding: 8px;
+  vertical-align: top;
+  white-space: pre-wrap;
 }
 
-div.column {
-  display: inline-block;
-  vertical-align: top;
-  /* width: 50%; */
+/* --- Pandoc & Utility Classes --- */
+a.footnote-ref {
+  vertical-align: super;
 }
 
 div.hanging-indent {
@@ -188,31 +143,9 @@ div.hanging-indent {
   text-indent: -1.5em;
 }
 
-h1.main {
-  font-size: 38pt;
-}
-
-h1.subtitle {
-  font-size: 24pt;
-}
-
-h1.title {
-  text-align: left;
-}
-
-h2.author {
-  font-size: 20pt;
-}
-
-h3.date {
-  font-weight: 500;
-  text-align: left;
-  font-size: 20pt;
-}
-
-p.author {
-  font-size: 20pt;
-  line-height: 1.77;
+div.column {
+  display: inline-block;
+  vertical-align: top;
 }
 
 span.smallcaps {
@@ -223,6 +156,7 @@ span.underline {
   text-decoration: underline;
 }
 
+/* --- Navigation --- */
 nav#landmarks ol li,
 nav#toc ol li {
   list-style-type: none;
