@@ -62,12 +62,21 @@ Write-Host "Building content EPUB..."
 pandoc -o "build\output.epub" --top-level-division=chapter --css="epub.css" "build\pdf_input.md"
 
 # Build preface PDF
+$pdfSansFamily ="Bai Jamjuree"
+$pdfMonoFamily ="DejaVu Sans Mono"
+$pdfStandardFont ="sans"
+$pdfDefaultFontSize = 22
+$pdfMonoFontSize = 16
+$pdfPageMarginLeft = 64
+$pdfPageMarginRight = 64
+$pdfPageMarginTop = 72
+$pdfPageMarginBottom = 108
 Write-Host "Building preface PDF..."
-ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 22 --pdf-mono-font-size 16 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
+ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size a4 --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
 
 # Build content PDF
 Write-Host "Building content PDF..."
-ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "Table of Contents" --paper-size a4 --embed-all-fonts --pdf-sans-family "Bai Jamjuree" --pdf-mono-family "DejaVu Sans Mono" --pdf-standard-font "sans" --pdf-default-font-size 22 --pdf-mono-font-size 16 --pdf-page-margin-left 64 --pdf-page-margin-right 64 --pdf-page-margin-top 72 --pdf-page-margin-bottom 108
+ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "Table of Contents" --paper-size a4 --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
 
 # # Split page content and toc
 # Write-Host "Splitting content and TOC..."
@@ -125,8 +134,9 @@ pdfcpu pages rem -pages $pageNumber ".\build\ebook.pdf"
 Write-Host "Optimize PDFs..."
 
 # Make PDF sample book for 5 pages
-Write-Host "Make PDF sample book for 40 pages..."
-pdfcpu trim -pages 1-5 .\build\ebook.pdf .\build\sample_ebook.pdf
+$samplePage = 5
+Write-Host "Make PDF sample book for 5 pages..."
+pdfcpu trim -pages 1-$samplePage .\build\ebook.pdf .\build\sample_ebook.pdf
 
 # delete all files in build directory except for ebook.pdf, sample_ebook.pdf, ebook_epub3.epub and sample_ebook_epub3.epub
 Get-ChildItem -Path "build\*" | Where-Object { $_.Name -notmatch "ebook\.pdf|sample_ebook\.pdf|ebook_epub3\.epub|sample_ebook_epub3\.epub" } | Remove-Item -Force
