@@ -9,12 +9,23 @@ Before you begin, ensure you have the following command-line tools installed:
 * [**Pandoc**](https://pandoc.org/): For converting between document formats.
 * [**Calibre CLI**](https://calibre-ebook.com/download): Specifically for the `ebook-convert` command.
 * [**pdfcpu**](https://pdfcpu.io/): For advanced PDF manipulation.
+* [**ImageMagick**](https://imagemagick.org): For image processing and manipulation.
 
 ## 2. How to Use
 
 ### Step 1: Write Your Content
 
 Place your book chapters as Markdown files (`.md`) inside the `/chapters` directory. They will be processed in alphanumeric order.
+
+### Step 1.5: Generate a Simple Cover (Optional)
+
+If you need a basic cover, you can generate `cover.png` and `cover.pdf` from your `epub.yaml` metadata using the `create_cover.ps1` script. This requires ImageMagick to be installed.
+
+**On Windows (PowerShell):**
+
+```powershell
+./create_cover.ps1
+```
 
 ### Step 2: Generate Your E-book
 

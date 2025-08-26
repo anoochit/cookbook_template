@@ -22,6 +22,16 @@ Before generating an e-book, you must have the following command-line tools inst
 *   [Pandoc](https://pandoc.org/)
 *   [Calibre Command-Line Tools (`ebook-convert`)](https://calibre-ebook.com/download)
 *   [pdfcpu](https://pdfcpu.io/)
+*   [ImageMagick](https://imagemagick.org)
+
+### Generating a Simple Cover
+
+You can use the `create_cover.ps1` script to generate a basic cover image (`cover.png`) and PDF (`cover.pdf`) from your `epub.yaml` metadata. This requires ImageMagick to be installed.
+
+**On Windows:**
+```powershell
+.\create_cover.ps1
+```
 
 ### Generation Process
 

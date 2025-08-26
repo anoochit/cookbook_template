@@ -3,9 +3,14 @@
 SHELL := pwsh.exe
 .SHELLFLAGS := -Command
 
-all: gen
+all: cover gen
+
+cover:
+	# Generate simple book cover
+	.\create_cover.ps1
 
 gen:
+	# Generate EPUB and PDF
 	.\gen.ps1
 
 commit-ai:

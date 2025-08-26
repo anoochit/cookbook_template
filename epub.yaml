@@ -1,11 +1,11 @@
 ---
 title:
   - type: main
-    text: "FastAPI Cookbook"
+    text: "GORM"
   - type: subtitle
-    text: "Build High-Performance APIs with Python and FastAPI"
-author: "Angela Nguyen"
-language: "en-US"
+    text: "ORM in Go for Beginers"
+author: "อนุชิต ชโลธร"
+language: "th-TH"
 toc: true
 toc-title: "Table of Contents"
 edition: 1
