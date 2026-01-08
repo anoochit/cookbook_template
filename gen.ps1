@@ -65,18 +65,19 @@ pandoc -o "build\output.epub" --top-level-division=chapter --css="epub.css" "bui
 $pdfSansFamily ="Bai Jamjuree"
 $pdfMonoFamily ="DejaVu Sans Mono"
 $pdfStandardFont ="sans"
-$pdfDefaultFontSize = 22
-$pdfMonoFontSize = 16
+$pdfDefaultFontSize = 24
+$pdfMonoFontSize = 18
 $pdfPageMarginLeft = 64
 $pdfPageMarginRight = 64
 $pdfPageMarginTop = 72
 $pdfPageMarginBottom = 108
+$paperSize = "a4"
 Write-Host "Building preface PDF..."
-ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size a4 --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
+ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --paper-size $paperSize --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
 
 # Build content PDF
 Write-Host "Building content PDF..."
-ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "Table of Contents" --paper-size a4 --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
+ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "สารบัญ" --paper-size $paperSize --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
 
 # # Split page content and toc
 # Write-Host "Splitting content and TOC..."

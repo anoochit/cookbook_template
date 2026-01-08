@@ -3,7 +3,7 @@
 }
 
 .calibre-pdf-toc table tr td:last-of-type {
-    font-size: 16pt;
+    font-size: 18pt;
     line-height: 1.77;
     text-align: right;
 
@@ -11,17 +11,17 @@
 
 .calibre-pdf-toc .level-0 {
     font-weight: 600;
-    font-size: 16pt;
+    font-size: 18pt;
     line-height: 1.77;
 }
 
 .calibre-pdf-toc .level-1 {
-    font-size: 16pt;
+    font-size: 18pt;
     line-height: 1.77;
 }
 
 .calibre-pdf-toc .level-2 {
-    font-size: 16pt;
+    font-size: 18pt;
     line-height: 1.77;
 }
 
