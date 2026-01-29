@@ -2,19 +2,23 @@
 /* /* body { margin: 5%; text-align: justify; font-size: medium; } */
 /* /* code { font-family: monospace; }   */
 /* code{ white-space: pre-wrap; } */
-@media screen {
+/* @media screen { */
 
-  /* Workaround for iBooks issue; see #6242 */
-  .sourceCode {
-    overflow: visible !important;
-    overflow-wrap: break-word;
-    white-space: pre-wrap !important;
-    word-break: break-word;
-  }
+/* Workaround for iBooks issue; see #6242 */
+
+/* } */
+
+.sourceCode {
+  overflow: visible !important;
+  overflow-wrap: break-word;
+  white-space: pre-wrap !important;
+  word-break: break-word;
+  line-height: 1.55;
 }
 
 a {
-  text-decoration: none;
+  text-decoration: underline;
+  color: #333;
 }
 
 strong {
@@ -35,14 +39,14 @@ blockquote {
 body,
 p,
 code {
-  font-family: "Bai Jamjuree", sans-serif;
+  font-family: "NanumGothic", sans-serif;
   /* margin: 5% 5% 20% 5%; */
   /* margin: 0; */
   margin-bottom: 8px;
   text-align: left;
+  line-height: 2.55;
+  text-indent: 0pt;
   font-size: 20pt;
-  line-height: 1.77;
-  text-indent: 32pt;
 }
 
 code {
@@ -60,9 +64,7 @@ p b {
 }
 
 pre code {
-  font-family: "DejaVu Sans Mono", monospace;
-  font-size: 16pt;
-  line-height: 1.50;
+  /* font-size: 18pt; */
   text-indent: 0;
   margin: 0;
   word-wrap: break-word;
@@ -78,7 +80,6 @@ figure img {
 
 figcaption,
 figure {
-  font-size: 16pt;
   /* padding: 8px; */
   text-align: center;
   text-indent: 0pt;
@@ -86,43 +87,40 @@ figure {
 
 h1 {
   text-align: left;
-  font-weight: 600;
-  font-size: 23pt;
+  font-weight: bold;
   text-indent: 0pt;
+  font-size: 24pt;
 }
 
 h2 {
-  font-weight: 600;
+  font-weight: bold;
   text-align: left;
-  font-size: 22pt;
   text-indent: 0pt;
+  font-size: 23pt;
 }
 
 h3 {
-  font-weight: 600;
+  font-weight: bold;
   text-align: left;
-  font-size: 22pt;
   text-indent: 0pt;
+  font-size: 22pt;
 }
 
 h4 {
-  font-weight: 600;
+  font-weight: bold;
   text-align: left;
-  font-size: 20pt;
   text-indent: 0pt;
 }
 
 h5 {
-  font-weight: 600;
+  font-weight: normal;
   text-align: left;
-  font-size: 20pt;
   text-indent: 0pt;
 }
 
 h6 {
   font-weight: 600;
   text-align: left;
-  font-size: 20pt;
   text-indent: 0pt;
 }
 
@@ -165,11 +163,6 @@ td {
   padding: 8px;
   vertical-align: top;
   white-space: pre-wrap;
-  font-size: 16pt;
-}
-
-td code {
-  font-size: 16pt;
 }
 
 th {
@@ -177,11 +170,6 @@ th {
   background-color: #eee;
   font-weight: 500;
   padding: 8px;
-  font-size: 16pt;
-}
-
-th code {
-  font-size: 16pt;
 }
 
 a.footnote-ref {
@@ -200,43 +188,38 @@ div.hanging-indent {
 }
 
 h1.main {
-  font-size: 36pt;
-}
-
-h1.subtitle {
-  font-size: 24pt;
-  font-weight: 500;
+  text-align: left;
+  font-size: 32pt;
 }
 
 h1.title {
-  font-size: 36pt;
   text-align: left;
 }
 
+h1.subtitle {
+  font-weight: 500;
+}
+
+
 h2.author {
-  font-size: 22pt;
   text-indent: 0;
 }
 
 h3.date {
   font-weight: 500;
   text-align: left;
-  font-size: 20pt;
   text-indent: 0;
 }
 
 p.author {
-  font-size: 22pt;
   line-height: 1.77;
   text-indent: 0;
 }
 
 p.date {
-  font-size: 22pt;
   line-height: 1.77;
   text-indent: 0;
 }
-
 
 #cover-image {
   text-indent: 0pt

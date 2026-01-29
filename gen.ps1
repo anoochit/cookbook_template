@@ -62,13 +62,13 @@ Write-Host "Building content EPUB..."
 pandoc -o "build\output.epub" --top-level-division=chapter --css="epub.css" "build\pdf_input.md"
 
 # Build preface PDF
-$pdfSansFamily ="Bai Jamjuree"
+$pdfSansFamily ="NanumGothic"
 $pdfMonoFamily ="DejaVu Sans Mono"
 $pdfStandardFont ="sans"
-$pdfDefaultFontSize = 24
-$pdfMonoFontSize = 18
-$pdfPageMarginLeft = 64
-$pdfPageMarginRight = 64
+$pdfDefaultFontSize = 20
+$pdfMonoFontSize = 20
+$pdfPageMarginLeft = 48
+$pdfPageMarginRight = 48
 $pdfPageMarginTop = 72
 $pdfPageMarginBottom = 108
 $paperSize = "a4"
@@ -77,7 +77,7 @@ ebook-convert "build\preface.epub" "build\preface.pdf" --extra-css "calibre_extr
 
 # Build content PDF
 Write-Host "Building content PDF..."
-ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "สารบัญ" --paper-size $paperSize --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
+ebook-convert "build\output.epub" "build\output.pdf" --extra-css "calibre_extra_css.css" --filter-css --insert-blank-line --pdf-add-toc --toc-title "목차" --paper-size $paperSize --embed-all-fonts --pdf-sans-family $pdfSansFamily --pdf-mono-family $pdfMonoFamily --pdf-standard-font $pdfStandardFont --pdf-default-font-size $pdfDefaultFontSize  --pdf-mono-font-size $pdfMonoFontSize --pdf-page-margin-left $pdfPageMarginLeft --pdf-page-margin-right $pdfPageMarginRight --pdf-page-margin-top $pdfPageMarginTop --pdf-page-margin-bottom $pdfPageMarginBottom
 
 # # Split page content and toc
 # Write-Host "Splitting content and TOC..."
@@ -134,10 +134,28 @@ $pageNumber = Read-Host "Enter the page number to remove"
 pdfcpu pages rem -pages $pageNumber ".\build\ebook.pdf"
 Write-Host "Optimize PDFs..."
 
-# Make PDF sample book for 5 pages
-$samplePage = 5
-Write-Host "Make PDF sample book for 5 pages..."
-pdfcpu trim -pages 1-$samplePage .\build\ebook.pdf .\build\sample_ebook.pdf
+# Paths
+$pdfPath = ".\build\ebook.pdf"
+$samplePath = ".\build\sample_ebook.pdf"
+
+# Get PDF info
+$pdfInfo = pdfcpu info $pdfPath
+
+# Extract page count
+$pageCount = ($pdfInfo | Select-String -Pattern "Page count:\s+(\d+)" |
+    ForEach-Object { [int]$_.Matches.Groups[1].Value })
+
+# Calculate 10% of pages (at least 1 page)
+$samplePages = [Math]::Max([Math]::Ceiling($pageCount * 0.1), 1)
+
+# Page range (first 10%)
+$pageRange = "1-$samplePages"
+
+Write-Host "Total pages   : $pageCount"
+Write-Host "Sample pages  : $samplePages ($pageRange)"
+
+# Create sample PDF
+pdfcpu trim -pages $pageRange $pdfPath $samplePath
 
 # delete all files in build directory except for ebook.pdf, sample_ebook.pdf, ebook_epub3.epub and sample_ebook_epub3.epub
 Get-ChildItem -Path "build\*" | Where-Object { $_.Name -notmatch "ebook\.pdf|sample_ebook\.pdf|ebook_epub3\.epub|sample_ebook_epub3\.epub" } | Remove-Item -Force
