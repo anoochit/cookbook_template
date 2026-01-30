@@ -1,0 +1,11 @@
+pdf_sans_family = Bai Jamjuree
+pdf_mono_family = DejaVu Sans Mono
+pdf_standard_font = sans
+pdf_default_font_size = 20
+pdf_mono_font_size = 20
+pdf_page_margin_left = 48
+pdf_page_margin_right = 48
+pdf_page_margin_top = 72
+pdf_page_margin_bottom = 108
+paper_size = a4
+pdf_toc_title=สารบัญ
