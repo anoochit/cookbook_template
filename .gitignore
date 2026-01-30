@@ -4,3 +4,4 @@ tmp
 secrets.toml
 commit-message.log
 target
+dist

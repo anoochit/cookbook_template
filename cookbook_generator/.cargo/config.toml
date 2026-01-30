@@ -1,0 +1,11 @@
+[target.x86_64-unknown-linux-gnu]
+linker = "zig cc -target x86_64-linux-gnu"
+ar = "zig ar"
+
+[target.x86_64-apple-darwin]
+linker = "zig cc -target x86_64-apple-darwin"
+ar = "zig ar"
+
+[target.x86_64-pc-windows-gnu]
+linker = "zig cc -target x86_64-windows-gnu"
+ar = "zig ar"
