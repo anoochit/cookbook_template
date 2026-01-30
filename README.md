@@ -43,48 +43,6 @@ Run the generation script to create the e-book files in the `/build` directory.
 ./gen.sh
 ```
 
-### Step 3: Using the Rust CLI (Alternative)
-
-An alternative way to generate your e-book is to use the provided Rust CLI application. This application provides more structured commands for building your book.
-
-#### Prerequisites for Rust CLI
-
-*   **Rust Toolchain**: Install the Rust programming language and Cargo (Rust's package manager) from [rustup.rs](https://rustup.rs/).
-
-#### How to Use the Rust CLI
-
-1.  **Navigate to the `cookbook_generator` directory:**
-
-    ```bash
-    cd cookbook_generator
-    ```
-
-2.  **Initialize the configuration file (if not already present):**
-
-    This command creates a `config.txt` file with default build parameters.
-
-    ```bash
-    cargo run init
-    ```
-
-    You can then edit `cookbook_generator/config.txt` to customize PDF generation parameters like font families, sizes, and margins.
-
-3.  **Build the e-book:**
-
-    This command compiles your markdown chapters into EPUB and PDF formats.
-
-    ```bash
-    cargo run build
-    ```
-
-    You will be prompted for page numbers to split and remove from the PDF. To skip these prompts and use default values (which might not be ideal for all books), you can use the `--skip-prompts` flag:
-
-    ```bash
-    cargo run build -- --skip-prompts
-    ```
-
-    The generated files will be in the `cookbook_generator/build` directory.
-
 ## 3. Customization
 
 You can customize your e-book by editing the following files:
