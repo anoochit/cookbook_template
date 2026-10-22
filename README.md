@@ -187,14 +187,18 @@ The `fonts/` directory bundles the [Bai Jamjuree](https://fonts.google.com/speci
 
 ## Output
 
-`cookbook_generator build` produces, among other intermediates:
+A successful `cookbook_generator build` leaves four finished files in `build/`:
 
-| File | Format |
+| File | What it is |
 | --- | --- |
-| `build/ebook_epub3.epub` | EPUB 3 e-book |
-| `build/output.pdf` | PDF |
+| `build/ebook_epub3.epub` | The complete book as EPUB 3, cover included |
+| `build/ebook.pdf` | The complete book as one PDF: front cover, preface, body, and back cover merged |
+| `build/sample_ebook_epub3.epub` | A sample EPUB holding the preface and the first chapter |
+| `build/sample_ebook.pdf` | A sample PDF — pages 1–5 of the merged book |
 
-Sample and intermediate files (`sample_*`, `*_input.md`, split page ranges) also land in `build/`. They are gitignored and safe to delete between builds.
+Everything else in `build/` during a run (`*_input.md`, the unmerged `ebook.epub`, `output.epub`, `output.pdf`, `preface.epub`, `preface.pdf`) is an intermediate. The generator removes them when the build succeeds; a build that stops early — at the interactive page-number prompt, for example — leaves them behind, and they are safe to delete.
+
+The whole `build/` directory is gitignored. Generated books never belong in Git.
 
 ## License
 
