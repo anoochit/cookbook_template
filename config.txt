@@ -8,5 +8,5 @@ pdf_page_margin_right = 64
 pdf_page_margin_top = 72
 pdf_page_margin_bottom = 108
 paper_size = a4
-pdf_toc_title=สารบัญ
+pdf_toc_title=Table of Contents
 

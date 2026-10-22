@@ -1,5 +1,6 @@
 .calibre-pdf-toc table {
-    width: 100%
+    width: 100%;
+    border-bottom: 2px solid #00add8;
 }
 
 .calibre-pdf-toc table tr td:last-of-type {
@@ -12,6 +13,7 @@
     font-weight: 600;
     font-size: 20pt;
     line-height: 1.77;
+    color: #007d9c;
 }
 
 .calibre-pdf-toc .level-1 {

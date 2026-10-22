@@ -2,6 +2,14 @@
 /* /* body { margin: 5%; text-align: justify; font-size: medium; } */
 /* /* code { font-family: monospace; }   */
 /* code{ white-space: pre-wrap; } */
+
+/* ------------------------------------------------------------------
+   Go theme palette
+   cyan  #00ADD8  primary accent: display headings, rules, highlights
+   deep  #007d9c  readable accent: section headings, links, strong text
+   tint  #E0EBF5  light surface: blockquotes, table headers
+   mist  #EAF3FA  lighter surface: code blocks
+   ------------------------------------------------------------------ */
 @media screen {
 
   /* Workaround for iBooks issue; see #6242 */
@@ -15,11 +23,12 @@
 
 a {
   text-decoration: underline dotted !important;
-  color: inherit;
+  color: #007d9c;
 }
 
 strong {
   font-weight: 600;
+  color: #007d9c;
 }
 
 blockquote {
@@ -29,7 +38,8 @@ blockquote {
   line-height: 0;
   overflow-x: auto;
   border-radius: 12px;
-  background-color: #eee;
+  background-color: #e0ebf5;
+  border-left: 4px solid #00add8;
   margin: 0;
 }
 
@@ -44,10 +54,12 @@ code {
   font-size: 16pt;
   line-height: 1.77;
   text-indent: 32pt;
+  color: #1e293b;
 }
 
 code {
   text-indent: 0pt;
+  color: #0f172a;
 }
 
 li p,
@@ -58,6 +70,7 @@ li {
 
 p b {
   font-weight: 500;
+  color: #007d9c;
 }
 
 pre code {
@@ -70,6 +83,7 @@ pre code {
   word-break: break-word;
   white-space: inherit;
   text-align: left;
+  color: #1e293b;
 }
 
 figure img {
@@ -92,6 +106,7 @@ h1 {
   font-weight: 600;
   font-size: 20pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 h2 {
@@ -99,6 +114,7 @@ h2 {
   text-align: left;
   font-size: 18pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 h3 {
@@ -106,6 +122,7 @@ h3 {
   text-align: left;
   font-size: 16pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 h4 {
@@ -113,6 +130,7 @@ h4 {
   text-align: left;
   font-size: 16pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 h5 {
@@ -120,6 +138,7 @@ h5 {
   text-align: left;
   font-size: 16pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 h6 {
@@ -127,6 +146,7 @@ h6 {
   text-align: left;
   font-size: 16pt;
   text-indent: 0pt;
+  color: #007d9c;
 }
 
 img {
@@ -137,7 +157,8 @@ pre {
   padding: 16px;
   overflow-x: auto;
   border-radius: 12px;
-  background-color: #eee;
+  background-color: #eaf3fa;
+  border: 1px solid #cfe1ee;
   text-indent: 0pt;
   white-space: pre-wrap;
 }
@@ -154,7 +175,7 @@ table {
 table,
 td,
 th {
-  border: 1px solid #bbb;
+  border: 1px solid #cbd5e1;
 }
 
 table {
@@ -177,7 +198,8 @@ td code {
 
 th {
   text-align: center;
-  background-color: #ddd;
+  background-color: #00add8;
+  color: #ffffff;
   font-weight: 600;
   padding: 8px;
   font-size: 14pt;
@@ -205,21 +227,25 @@ div.hanging-indent {
 h1.main {
   font-size: 38pt;
   text-align: left;
+  color: #00add8;
 }
 
 h1.subtitle {
   font-size: 24pt;
   font-weight: 500;
+  color: #007d9c;
 }
 
 h1.title {
   font-size: 38pt;
   text-align: left;
+  color: #00add8;
 }
 
 h2.author {
   font-size: 18pt;
   text-indent: 0;
+  color: #007d9c;
 }
 
 h3.date {
@@ -227,6 +253,7 @@ h3.date {
   text-align: left;
   font-size: 16pt;
   text-indent: 0;
+  color: #64748b;
 }
 
 p.author {
