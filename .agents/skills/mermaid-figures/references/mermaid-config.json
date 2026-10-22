@@ -1,0 +1,25 @@
+{
+  "theme": "default",
+  "themeVariables": {
+    "fontFamily": "'Google Sans', 'Noto Sans Thai', 'Segoe UI', sans-serif",
+    "fontSize": "16px",
+    "primaryColor": "#eef2ff",
+    "primaryTextColor": "#1e1b4b",
+    "primaryBorderColor": "#818cf8",
+    "lineColor": "#475569",
+    "secondaryColor": "#f1f5f9",
+    "tertiaryColor": "#ffffff",
+    "clusterBkg": "#fffbeb",
+    "clusterBorder": "#f59e0b"
+  },
+  "flowchart": {
+    "htmlLabels": true,
+    "curve": "basis",
+    "padding": 12,
+    "useMaxWidth": false
+  },
+  "sequence": {
+    "useMaxWidth": false,
+    "wrap": true
+  }
+}

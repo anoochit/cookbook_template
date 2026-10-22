@@ -2,23 +2,20 @@
 /* /* body { margin: 5%; text-align: justify; font-size: medium; } */
 /* /* code { font-family: monospace; }   */
 /* code{ white-space: pre-wrap; } */
-/* @media screen { */
+@media screen {
 
-/* Workaround for iBooks issue; see #6242 */
-
-/* } */
-
-.sourceCode {
-  overflow: visible !important;
-  overflow-wrap: break-word;
-  white-space: pre-wrap !important;
-  word-break: break-word;
-  line-height: 1.55;
+  /* Workaround for iBooks issue; see #6242 */
+  .sourceCode {
+    overflow: visible !important;
+    overflow-wrap: break-word;
+    white-space: pre-wrap !important;
+    word-break: break-word;
+  }
 }
 
 a {
-  text-decoration: underline;
-  color: #333;
+  text-decoration: underline dotted !important;
+  color: inherit;
 }
 
 strong {
@@ -44,9 +41,9 @@ code {
   /* margin: 0; */
   margin-bottom: 8px;
   text-align: left;
-  line-height: 2.55;
-  text-indent: 0pt;
-  font-size: 20pt;
+  font-size: 16pt;
+  line-height: 1.77;
+  text-indent: 32pt;
 }
 
 code {
@@ -64,12 +61,15 @@ p b {
 }
 
 pre code {
-  /* font-size: 18pt; */
+  font-family: "Google Sans Code", courier, monospace;
+  font-size: 14pt;
+  line-height: 1.5;
   text-indent: 0;
   margin: 0;
   word-wrap: break-word;
   word-break: break-word;
   white-space: inherit;
+  text-align: left;
 }
 
 figure img {
@@ -80,47 +80,52 @@ figure img {
 
 figcaption,
 figure {
+  font-size: 14pt;
   /* padding: 8px; */
   text-align: center;
   text-indent: 0pt;
+  /* font-style: italic; */
 }
 
 h1 {
   text-align: left;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 20pt;
   text-indent: 0pt;
-  font-size: 24pt;
 }
 
 h2 {
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
+  font-size: 18pt;
   text-indent: 0pt;
-  font-size: 23pt;
 }
 
 h3 {
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
+  font-size: 16pt;
   text-indent: 0pt;
-  font-size: 22pt;
 }
 
 h4 {
-  font-weight: bold;
+  font-weight: 600;
   text-align: left;
+  font-size: 16pt;
   text-indent: 0pt;
 }
 
 h5 {
-  font-weight: normal;
+  font-weight: 500;
   text-align: left;
+  font-size: 16pt;
   text-indent: 0pt;
 }
 
 h6 {
   font-weight: 600;
   text-align: left;
+  font-size: 16pt;
   text-indent: 0pt;
 }
 
@@ -163,13 +168,23 @@ td {
   padding: 8px;
   vertical-align: top;
   white-space: pre-wrap;
+  font-size: 14pt;
+}
+
+td code {
+  font-size: 14pt;
 }
 
 th {
   text-align: center;
-  background-color: #eee;
-  font-weight: 500;
+  background-color: #ddd;
+  font-weight: 600;
   padding: 8px;
+  font-size: 14pt;
+}
+
+th code {
+  font-size: 14pt;
 }
 
 a.footnote-ref {
@@ -188,38 +203,44 @@ div.hanging-indent {
 }
 
 h1.main {
-  text-align: left;
-  font-size: 32pt;
-}
-
-h1.title {
+  font-size: 38pt;
   text-align: left;
 }
 
 h1.subtitle {
+  font-size: 24pt;
   font-weight: 500;
 }
 
+h1.title {
+  font-size: 38pt;
+  text-align: left;
+}
 
 h2.author {
+  font-size: 18pt;
   text-indent: 0;
 }
 
 h3.date {
   font-weight: 500;
   text-align: left;
+  font-size: 16pt;
   text-indent: 0;
 }
 
 p.author {
-  line-height: 1.77;
+  font-size: 18pt;
+  line-height: 0;
   text-indent: 0;
 }
 
 p.date {
+  font-size: 18pt;
   line-height: 1.77;
   text-indent: 0;
 }
+
 
 #cover-image {
   text-indent: 0pt

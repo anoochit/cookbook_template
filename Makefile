@@ -6,7 +6,7 @@ SHELL := pwsh.exe
 all: gen
 
 gen:
-	.\gen.ps1
+	cookbook_generator build
 
 commit-ai:
 	# Stage all changes (optional, remove if you want to stage manually)
