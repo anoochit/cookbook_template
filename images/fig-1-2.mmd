@@ -1,0 +1,15 @@
+flowchart TD
+    A["Declare a model struct<br/>type Product struct"]
+    B["Call a GORM method<br/>db.Where(...).Find(&users)"]
+    C["GORM builds the SQL string"]
+    D["Driver sends SQL to the database"]
+    E["Database returns rows"]
+    F["GORM scans rows into structs"]
+    G["Your code receives the result<br/>and checks db.Error"]
+
+    A --> B
+    B --> C
+    C --> D
+    D --> E
+    E --> F
+    F --> G

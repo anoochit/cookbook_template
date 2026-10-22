@@ -1,0 +1,14 @@
+flowchart TD
+    Q["A feature you are about to build"]
+    Q --> In
+    Q --> Out
+    In["Handled by GORM"]
+    In --> I1["Mapping structs to tables and columns"]
+    In --> I2["Building SQL from method calls"]
+    In --> I3["Scanning rows back into structs"]
+    In --> I4["Running associations and hooks"]
+    Out["Still your responsibility"]
+    Out --> O1["Schema changes in production"]
+    Out --> O2["Connection pool sizing"]
+    Out --> O3["Query performance tuning"]
+    Out --> O4["Where transactions begin and end"]

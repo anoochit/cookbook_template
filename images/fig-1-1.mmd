@@ -1,0 +1,14 @@
+flowchart TD
+    App["Your Go application<br/>structs and business logic"]
+    Gen["GORM API<br/>db.Model / db.Where / db.Create"]
+    SQL["SQL statement built from your calls"]
+    Drv["Database driver<br/>sqlite / postgres / mysql"]
+    DB[("Database server")]
+
+    App --> Gen
+    Gen --> SQL
+    SQL --> Drv
+    Drv --> DB
+    DB --> Rows["Rows returned"]
+    Rows --> Scan["GORM scans rows into structs"]
+    Scan --> App
