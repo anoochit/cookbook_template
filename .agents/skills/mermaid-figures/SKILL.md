@@ -1,9 +1,9 @@
 ---
 name: mermaid-figures
-description: สร้างและอัปเดตไดอะแกรมของหนังสือ ADK-Rust Cookbook โดยแยก Mermaid source ออกเป็นไฟล์ .mmd แล้วเรนเดอร์เป็นภาพ PNG ที่ฝังในบท ต้องใช้เมื่อเพิ่ม แก้ไข หรือตรวจสอบไดอะแกรมใน chapters/
+description: Create and update the book's diagrams by keeping Mermaid source in separate .mmd files and rendering them to PNG images that are embedded in the chapters. Use when adding, editing, or auditing diagrams in chapters/.
 version: "1.0.0"
 license: MIT
-compatibility: ต้องมี Node.js และ mermaid-cli (@mermaid-js/mermaid-cli) ติดตั้งแบบ global
+compatibility: Requires Node.js and a global install of mermaid-cli (@mermaid-js/mermaid-cli)
 tags: [documentation, mermaid, diagram, images, ebook]
 triggers: ["*.md", "images/*", "chapters/*"]
 references:
@@ -12,98 +12,107 @@ references:
 
 # Mermaid Figures Skill
 
-ทักษะนี้ควบคุมวิธีสร้างไดอะแกรมในหนังสือ **ปั้น AI Agent ด้วย ADK-Rust** ให้เป็นภาพ PNG
-ที่ฝังอยู่ในบทจริง แทนการใช้บล็อก ` ```mermaid ` แบบ inline
+This skill controls how diagrams in the book are rendered to PNG images
+embedded in the actual chapters, instead of using inline ` ```mermaid ` blocks.
 
-## กติกาที่ห้ามละเมิด
+## Rules That Must Not Be Broken
 
-1. **ห้ามใส่บล็อก ` ```mermaid ` ในไฟล์บท** — บทต้องอ้างอิงภาพ PNG เท่านั้น
-2. **ชื่อไฟล์ต้องผูกกับเลขไดอะแกรม** — `images/figX-Y.png` = บท X ไดอะแกรม Y (แหล่ง Mermaid อยู่ที่ `images/fig-X-Y.mmd`)
-3. **ต้องมี alt text ที่บรรยายไดอะแกรม และย่อหน้าอธิบายทันทีใต้ภาพเสมอ**:
+1. **Never put a ` ```mermaid ` block in a chapter file** — chapters may only reference PNG images.
+2. **File names are bound to the figure number** — `images/figX-Y.png` = chapter X, figure Y (the Mermaid source lives at `images/fig-X-Y.mmd`).
+3. **Always include descriptive alt text and an explanatory paragraph directly below the image**:
+
    ```markdown
-   ![<คำบรรยายไดอะแกรม>](images/fig1-1.png)
+   ![<descriptive alt text>](images/fig1-1.png)
 
-   <ย่อหน้าอธิบายกลไก ขั้นตอน และความสัมพันธ์ของส่วนประกอบในภาพ>
+   <prose paragraph explaining the mechanism, steps, and relationships between the components in the image>
    ```
-   - alt text ต้องบอกว่าภาพนี้แสดงอะไร ห้ามใช้คำนำหน้ากว้าง ๆ เช่น `แผนภาพ...` อย่างเดียว
-   - **ไม่ใช้ caption line** (เช่น `*ไดอะแกรมที่ 1.1: ...*`) อีกต่อไป
-4. **สไตล์ภาพต้องเป็น flowchart แนวตั้ง** (`flowchart TD` / `graph TD`) เพราะภาพแนวนอน
-   จะถูกย่อจนอ่านไม่ออกบนหน้าจอ e-reader
 
-## โครงสร้างไฟล์
+   - The alt text must say what the image shows; do not rely on a generic prefix such as "Diagram..." alone.
+   - **Caption lines** (e.g. `*Figure 1.1: ...*`) are **no longer used**.
+4. **The image style must be a vertical flowchart** (`flowchart TD` / `graph TD`), because horizontal
+   diagrams get scaled down until they are unreadable on e-reader screens.
 
-| ไฟล์ | บทบาท |
+## File Layout
+
+| File | Role |
 |---|---|
-| `images/figN-N.mmd` | Mermaid source ของไดอะแกรม N.N (แก้ไขที่นี่เมื่อเปลี่ยนภาพ) |
-| `images/figN-N.png` | ภาพเรนเดอร์ที่บทอ้างอิง (สร้างจาก `.mmd`) |
-| `references/mermaid-config.json` | ธีม mermaid-cli (ฟอนต์ Google Sans, พื้นหลังขาว) |
+| `images/fig-X-Y.mmd` | Mermaid source for figure X.Y (edit here when changing a diagram) |
+| `images/figX-Y.png` | Rendered image referenced by the chapters (built from the `.mmd`) |
+| `references/mermaid-config.json` | mermaid-cli theme (Google Sans font, white background) |
 
-> ชื่อไฟล์สองแบบต่างกันโดยเจตนา: `.mmd` ใช้ `fig-N-N.mmd` (มีขีดคั่น) ส่วน `.png`
-> ใช้ `figN-N.png` (ไม่มีขีดคั่น) เพื่อให้สอดคล้องกับรูปแบบเดิมของหนังสือ
+> The two file-name styles differ on purpose: the `.mmd` uses `fig-X-Y.mmd` (hyphenated) while the
+> `.png` uses `figX-Y.png` (unhyphenated), to stay consistent with the book's existing convention.
 
-## เพิ่มไดอะแกรมใหม่
+## Adding a New Diagram
 
-1. เขียนบล็อก ` ```mermaid ` ในบทเป้าหมาย แล้วเขียน image reference พร้อม alt text
-   ที่บรรยายไดอะแกรมไว้ใต้บล็อก พร้อมย่อหน้าอธิบายใต้ภาพ:
+1. Write a ` ```mermaid ` block in the target chapter, then write an image reference with descriptive
+   alt text below the block, followed by an explanatory paragraph:
+
    ```markdown
    ```mermaid
    flowchart TD
        A[...] --> B[...]
    ```
 
-   ![<คำบรรยายไดอะแกรม>](images/fig1-5.png)
+   ![<descriptive alt text>](images/fig1-5.png)
 
-   <ย่อหน้าอธิบายกลไก ขั้นตอน และความสัมพันธ์ของส่วนประกอบในภาพ>
+   <prose paragraph explaining the mechanism, steps, and relationships between the components in the image>
    ```
-2. ดึงบล็อกออกเป็นไฟล์ `.mmd` (image reference ที่เขียนไว้แล้วจะถูกคงไว้):
+
+2. Extract the block into a `.mmd` file (the image reference you already wrote is preserved):
+
    ```bash
-   node .agents/skills/mermaid-figures/scripts/extract-mermaid.js --dry-run   # ดูตัวอย่างก่อน
+   node .agents/skills/mermaid-figures/scripts/extract-mermaid.js --dry-run   # preview first
    node .agents/skills/mermaid-figures/scripts/extract-mermaid.js
    ```
-3. เรนเดอร์ภาพ:
+
+3. Render the image:
+
    ```bash
    node .agents/skills/mermaid-figures/scripts/render-mermaid.js --jobs 4
    ```
 
-## แก้ไขไดอะแกรมที่มีอยู่แล้ว
+## Editing an Existing Diagram
 
-1. แก้ `images/fig-N-N.mmd` โดยตรง (ห้ามแก้ไฟล์ `.png`)
-2. เรนเดอร์ใหม่ — เรนเดอร์เฉพาะบทที่แก้ไขเพื่อความรวดเร็ว:
+1. Edit `images/fig-X-Y.mmd` directly (never edit the `.png`).
+2. Re-render — render only the chapter you changed for speed:
+
    ```bash
    node .agents/skills/mermaid-figures/scripts/render-mermaid.js --chapter 1 --jobs 4
    ```
 
-   ตัวเลือกการกรอง:
+   Filter options:
 
-   | ตัวเลือก | ความหมาย |
+   | Option | Meaning |
    |---|---|
-   | (ไม่ระบุ) | เรนเดอร์ทุกไดอะแกรมในหนังสือ |
-   | `--chapter N` | เรนเดอร์เฉพาะบทที่ N เช่น `--chapter 1` |
-   | `--figure N.M` | เรนเดอร์เฉพาะไดอะแกรม N.M เช่น `--figure 1.2` |
-   | `--jobs N` | จำนวนการเรนเดอร์พร้อมกัน (ค่าเริ่มต้น 4) |
+   | (none) | Render every diagram in the book |
+   | `--chapter N` | Render only chapter N, e.g. `--chapter 1` |
+   | `--figure N.M` | Render only figure N.M, e.g. `--figure 1.2` |
+   | `--jobs N` | Number of parallel render jobs (default 4) |
 
-### ความละเอียดภาพ (สำคัญสำหรับ PDF/EPUB)
+### Image Resolution (Important for PDF/EPUB)
 
-`references/mermaid-config.json` ตั้ง `useMaxWidth: false` เพื่อให้แต่ละไดอะแกรมถูกเรนเดอร์
-ที่ **สัดส่วนตามธรรมชาติ** (ไม่ถูกยืดให้เต็มกรอบ 1600px) แล้วขยายด้วย `--scale 4`
-ให้ได้ภาพความละเอียดสูงพอสำหรับงานพิมพ์ (~200 DPI เมื่อย่อเต็งความกว้างหน้า)
+`references/mermaid-config.json` sets `useMaxWidth: false` so each diagram is rendered at its
+**natural proportions** (not stretched to fill a 1600px frame), and `--scale 4` then enlarges it
+to a resolution high enough for print (~200 DPI when scaled to the full page width).
 
-> ถ้าเปลี่ยน `useMaxWidth` กลับเป็น `true` ต้องเพิ่ม `--scale` ให้สูงพอด้วย
-> ไม่เช่นนั้นความละเอียดภาพจะลดลงเหลือครึ่งหนึ่ง
+> If you change `useMaxWidth` back to `true`, you must raise `--scale` accordingly,
+> otherwise the effective image resolution drops by half.
 
-## ตรวจสอบความถูกต้อง
+## Validation
 
 ```bash
 node .agents/skills/mermaid-figures/scripts/verify-figures.js
 ```
 
-สคริปต์นี้ตรวจว่า ทุก image reference มีไฟล์ `.png` และ `.mmd` ครบ, alt text บรรยายไดอะแกรม
-จริง, มีย่อหน้าอธิบายอยู่ใต้ภาพ, ไม่มี caption line ค้างเก่า และไม่มีบล็อก mermaid เหลือค้างในบท
+This script checks that every image reference has matching `.png` and `.mmd` files, that the alt text
+actually describes the diagram, that an explanatory paragraph sits below the image, that no legacy
+caption lines remain, and that no mermaid blocks are left behind in the chapters.
 
-## ข้อควรระวังด้านไวยากรณ์ Mermaid
+## Mermaid Syntax Warnings
 
-ข้อความในป้ายที่มี `{`, `}` หรือ `#[` **ต้องครอบด้วย double quotes** ไม่เช่นนั้น
-parser จะตีความเป็น shape แล้ว render ไม่ผ่าน
+Label text containing `{`, `}` or `#[` **must be wrapped in double quotes**, otherwise the
+parser treats it as a shape and the render fails.
 
 ```mermaid
 flowchart TD
@@ -112,10 +121,10 @@ flowchart TD
     Bad[Resolve {user_name} from Session State]
 ```
 
-## สร้างหนังสือหลังแก้ไข
+## Building the Book After Editing
 
 ```bash
 make gen
 ```
 
-ผลลัพธ์อยู่ที่ `build/ebook_epub3.epub` และ `build/output.pdf`
+Output lands in `build/ebook_epub3.epub` and `build/output.pdf`.
