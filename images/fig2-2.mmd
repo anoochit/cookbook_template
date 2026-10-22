@@ -1,0 +1,8 @@
+flowchart TD
+    Open["gorm.Open(dialector, opts...)"] --> Dia["Dialector initializes the connection<br/>sqlite.Open / mysql.Open / postgres.Open"]
+    Dia --> Cfg["Config applied<br/>logger, naming, PrepareStmt, timeouts"]
+    Cfg --> Ping{"Ping at startup?"}
+    Ping -- "DisableAutomaticPing = false" --> Reach{"Database reachable?"}
+    Reach -- yes --> Ok["*gorm.DB returned<br/>the handle you keep"]
+    Reach -- no --> Err["error returned<br/>fix it before the first query"]
+    Ping -- "DisableAutomaticPing = true" --> Ok

@@ -23,6 +23,11 @@ Welcome to the **"GORM: ORM in Go for beginners"** repository. This document pro
 │   ├── 00_preface.md           # Publisher foreword & author preface
 │   ├── 01_introduction.md
 │   └── ...
+├── example/                    # Runnable example programs shown in the chapters
+│   └── <title>/                # One directory per chapter title (e.g. example/setup/)
+│       ├── main.go             # The complete program printed in that chapter
+│       ├── go.mod              # Standalone module so `go run .` works
+│       └── go.sum
 ├── images/                     # Figures, diagrams, cover images, and vector assets
 │   ├── figX-Y.mmd             # Mermaid source for figure X.Y
 │   └── figX-Y.png              # Rendered figure X.Y (referenced by chapters)
@@ -89,6 +94,14 @@ Lead Paragraph → Context → Problem → Concept → Architecture → Implemen
 
 ### Technical Accuracy & Code Examples
 
+- **Verify Before Writing:** Check every API, command, default value, and configuration against the official GORM documentation cited for that chapter in `toc.md` before putting it in prose or code. Never invent APIs, commands, flags, or default values.
+- **Complete Programs Live in `example/<title>/`:** Every complete, runnable program printed in a chapter MUST also be checked in under `example/<title>/`, where `<title>` is the chapter title in lower case with spaces replaced by hyphens. Chapter 2 (`# Chapter 2: Setup`) → `example/setup/`; Chapter 3 (`Declaring Models and Conventions`) → `example/declaring-models-and-conventions/`.
+- **Standalone Modules:** Each example directory is its own Go module (`go.mod`, `go.sum`, `main.go`) that runs with `go run .` from inside the directory. If an example needs a C toolchain (CGO) or any other build prerequisite, state it in the chapter prose.
+- **Chapter and Example Stay in Sync:** A code block in a chapter MUST match the checked-in example source character for character (unless the block deliberately shows only a fragment). When either side changes, update the other in the same edit.
+- **Tell the Reader Where the Code Is:** Reference `example/<title>/` in the chapter prose so readers can find, run, and modify the full program.
+- **Fragments Stay Inline:** Partial snippets — one call, an alternate import, a config fragment — live only in the chapter; they do not get their own directory.
+- **No Generated Artifacts:** Never commit files a program produces at runtime (for example SQLite `*.db` files); add them to `.gitignore`.
+
 ---
 
 ## 4. Workflows & Commands
@@ -116,6 +129,17 @@ The output files are generated under the `build/` directory.
 - Ensure all chapter titles and section structures align with `toc.md`.
 - Maintain terminology consistency across all chapters.
 
+### Running a Chapter Example
+
+Each `example/<title>/` directory is a self-contained Go module:
+
+```bash
+cd example/setup
+go run .
+```
+
+Use `go build ./...` or `go vet ./...` to type-check an example without running it. Prerequisites that go beyond the Go toolchain (such as CGO for `gorm.io/driver/sqlite`) must be documented in the chapter that owns the example.
+
 ### Git Commit & Push Policy
 
 - **Automatic Commit & Push:** After every change or update (chapters, TOC, configuration, or documentation), automatically run `git add .`, `git commit -m "<conventional_commit_message>"`, and `git push`.
@@ -130,3 +154,4 @@ The output files are generated under the `build/` directory.
 3. **Mandatory Diagram Alt Text & Explanations:** Every diagram needs descriptive alt text in its image reference and an explanatory prose paragraph directly below it. No caption lines.
 4. **Auto Git Commit & Push:** Automatically run `git add .`, `git commit`, and `git push` after completing changes or updates.
 5. **Preserve Technical Meaning:** Never alter technical facts or code correctness when polishing prose.
+6. **Examples Are Checked In:** Every complete program printed in a chapter must exist under `example/<title>/`, build as a standalone Go module, and stay identical to the code block in the chapter.

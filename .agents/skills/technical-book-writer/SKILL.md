@@ -473,6 +473,8 @@ After the code, explain only the important parts.
 
 There is no need to explain every line when the code is straightforward.
 
+In this book project, every complete program printed in a chapter is also checked in under `example/<title>/` — see section 36 for the full convention.
+
 ---
 
 # 15. Configuration
@@ -1031,3 +1033,39 @@ When uncertainty conflicts with completeness:
 When a rewrite conflicts with the original content:
 
 > **Preserve the original meaning unless the user explicitly asks for a change.**
+
+---
+
+# 36. Runnable Example Projects (project convention)
+
+This book project stores its example code as runnable programs instead of code blocks that exist only inside chapter prose.
+
+## Layout
+
+```text
+example/
+└── <title>/
+    ├── main.go     # the complete program printed in the chapter
+    ├── go.mod      # standalone module — `go run .` works from the directory
+    └── go.sum
+```
+
+`<title>` is the chapter title in lower case with spaces replaced by hyphens:
+
+| Chapter | Title | Directory |
+| --- | --- | --- |
+| Chapter 2 | Setup | `example/setup/` |
+| Chapter 3 | Declaring Models and Conventions | `example/declaring-models-and-conventions/` |
+
+## Rules
+
+1. **One complete program per chapter**, at minimum: the program the chapter builds toward or prints in full must live in `example/<title>/main.go`.
+2. **The chapter and the example must match.** The code block in the chapter is the same code as `example/<title>/main.go`, character for character. When one changes, change the other in the same edit.
+3. **The example must build.** Verify with `go build ./...` or `go vet ./...`. State any prerequisite beyond the Go toolchain — CGO, a database server, an environment variable — in the chapter prose.
+4. **Tell the reader where it is.** Reference `example/<title>/` in the chapter text and show how to run it (`cd example/setup` then `go run .`).
+5. **Fragments stay inline.** A partial snippet — one function call, an alternate import, a configuration fragment — belongs only in the chapter; it does not get its own directory.
+6. **Never commit runtime output.** Databases, logs, and binaries a program produces are ignored via `.gitignore`, not checked in.
+
+## Why
+
+Code that is compiled and run while writing catches the failures prose hides: an API that moved, a return value that changed shape, a default that was never true. Keeping the runnable copy beside the chapter is what keeps the printed code honest.

@@ -1,0 +1,5 @@
+flowchart TD
+    App["Your program<br/>package main and your models"] --> Core["gorm.io/gorm<br/>handle, SQL builder, hooks"]
+    Core --> Drv["Driver package<br/>sqlite, mysql or postgres"]
+    Drv --> Pool["database/sql<br/>connection pool"]
+    Pool --> Server[("Database server<br/>or an SQLite file")]

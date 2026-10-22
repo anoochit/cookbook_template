@@ -1,0 +1,11 @@
+flowchart TD
+    G1["Goroutine 1"] --> H["*gorm.DB handle<br/>shared by the whole program"]
+    G2["Goroutine 2"] --> H
+    G3["Goroutine 3"] --> H
+    H --> Pool["database/sql pool<br/>MaxOpenConns, MaxIdleConns, ConnMaxLifetime"]
+    Pool --> C1["Connection 1"]
+    Pool --> C2["Connection 2"]
+    Pool --> CN["Connection N"]
+    C1 --> Server[("Database server")]
+    C2 --> Server
+    CN --> Server

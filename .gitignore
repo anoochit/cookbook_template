@@ -1,2 +1,4 @@
 /build/*
 .env
+# SQLite databases created by running the example programs
+example/**/test.db
