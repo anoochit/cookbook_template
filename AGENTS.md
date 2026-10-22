@@ -26,6 +26,9 @@ Welcome to the **"GORM: ORM in Go for beginners"** repository. This document pro
 ├── images/                     # Figures, diagrams, cover images, and vector assets
 │   ├── figX-Y.mmd             # Mermaid source for figure X.Y
 │   └── figX-Y.png              # Rendered figure X.Y (referenced by chapters)
+├── .agents/skills/             # Agent skills used while writing and building the book
+│   ├── technical-book-writer/  # Writing and editing guidelines (SKILL.md)
+│   └── mermaid-figures/        # Diagram workflow: scripts, config, references
 └── build/                      # Output directory for generated PDF and EPUB files
 ```
 
