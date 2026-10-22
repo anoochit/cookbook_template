@@ -48,9 +48,9 @@ for (const file of files) {
 
         const alt = img[1].trim();
         const pngPath = path.join(imagesDir, img[2]);
-        const mmdPath = path.join(imagesDir, `fig-${img[3]}-${img[4]}.mmd`);
+        const mmdPath = path.join(imagesDir, `fig${img[3]}-${img[4]}.mmd`);
         referenced.add(img[2]);
-        referenced.add(`fig-${img[3]}-${img[4]}.mmd`);
+        referenced.add(`fig${img[3]}-${img[4]}.mmd`);
 
         if (!fs.existsSync(pngPath)) problems.push(`${file}:${i + 1} missing PNG ${img[2]}`);
         if (!fs.existsSync(mmdPath)) problems.push(`${file}:${i + 1} missing MMD source fig${img[3]}-${img[4]}.mmd`);
@@ -84,7 +84,7 @@ console.log(`checked ${checked} image references across ${files.length} chapters
 // figure assets that no chapter references any more
 const orphans = fs
     .readdirSync(imagesDir)
-    .filter((f) => /^fig-?\d+-\d+\.(png|mmd)$/.test(f))
+    .filter((f) => /^fig\d+-\d+\.(png|mmd)$/.test(f))
     .filter((f) => !referenced.has(f))
     .sort();
 

@@ -1,5 +1,5 @@
 /**
- * Extracts Mermaid diagrams from every chapter into `images/fig-N-N.mmd`
+ * Extracts Mermaid diagrams from every chapter into `images/figN-N.mmd`
  * and removes the fenced block, leaving the image reference `![desc](images/figN-N.png)`
  * that the author already wrote right below the block.
  *
@@ -78,7 +78,7 @@ for (const file of files) {
         const chap = ref[3];
         const seq = ref[4];
         const desc = ref[1].trim();
-        const mmdName = `fig-${chap}-${seq}.mmd`;
+        const mmdName = `fig${chap}-${seq}.mmd`;
         const pngName = `fig${chap}-${seq}.png`;
 
         // write the mermaid source

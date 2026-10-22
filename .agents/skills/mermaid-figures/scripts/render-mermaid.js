@@ -1,5 +1,5 @@
 /**
- * Renders `images/fig-N-N.mmd` into `images/figN-N.png` with mermaid-cli.
+ * Renders `images/figN-N.mmd` into `images/figN-N.png` with mermaid-cli.
  *
  * Usage:
  *   node .agents/skills/mermaid-figures/scripts/render-mermaid.js [--jobs N] [--chapter N] [--figure N.N]
@@ -36,9 +36,9 @@ const FIGURE = flagValue('--figure');
 
 const sources = fs
     .readdirSync(imagesDir)
-    .filter((f) => /^fig-\d+-\d+\.mmd$/.test(f))
+    .filter((f) => /^fig\d+-\d+\.mmd$/.test(f))
     .filter((f) => {
-        const [, chap, seq] = f.match(/^fig-(\d+)-(\d+)\.mmd$/);
+        const [, chap, seq] = f.match(/^fig(\d+)-(\d+)\.mmd$/);
         if (CHAPTER !== undefined && chap !== String(Number(CHAPTER))) return false;
         if (FIGURE !== undefined && `${chap}.${seq}` !== FIGURE) return false;
         return true;
@@ -48,7 +48,7 @@ const sources = fs
 function render(file) {
     return new Promise((resolve) => {
         const mmd = path.join(imagesDir, file);
-        const png = path.join(imagesDir, file.replace(/^fig-/, 'fig').replace(/\.mmd$/, '.png'));
+        const png = path.join(imagesDir, file.replace(/^fig/, 'fig').replace(/\.mmd$/, '.png'));
         const args = [
             '-i', mmd,
             '-o', png,

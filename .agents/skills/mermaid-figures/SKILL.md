@@ -18,7 +18,7 @@ embedded in the actual chapters, instead of using inline ` ```mermaid ` blocks.
 ## Rules That Must Not Be Broken
 
 1. **Never put a ` ```mermaid ` block in a chapter file** — chapters may only reference PNG images.
-2. **File names are bound to the figure number** — `images/figX-Y.png` = chapter X, figure Y (the Mermaid source lives at `images/fig-X-Y.mmd`).
+2. **File names are bound to the figure number** — `images/figX-Y.png` = chapter X, figure Y (the Mermaid source lives at `images/figX-Y.mmd`).
 3. **Always include descriptive alt text and an explanatory paragraph directly below the image**:
 
    ```markdown
@@ -36,11 +36,11 @@ embedded in the actual chapters, instead of using inline ` ```mermaid ` blocks.
 
 | File | Role |
 |---|---|
-| `images/fig-X-Y.mmd` | Mermaid source for figure X.Y (edit here when changing a diagram) |
+| `images/figX-Y.mmd` | Mermaid source for figure X.Y (edit here when changing a diagram) |
 | `images/figX-Y.png` | Rendered image referenced by the chapters (built from the `.mmd`) |
 | `references/mermaid-config.json` | mermaid-cli theme (Google Sans font, white background) |
 
-> The two file-name styles differ on purpose: the `.mmd` uses `fig-X-Y.mmd` (hyphenated) while the
+> The two file-name styles differ on purpose: the `.mmd` uses `figX-Y.mmd` (hyphenated) while the
 > `.png` uses `figX-Y.png` (unhyphenated), to stay consistent with the book's existing convention.
 
 ## Adding a New Diagram
@@ -74,7 +74,7 @@ embedded in the actual chapters, instead of using inline ` ```mermaid ` blocks.
 
 ## Editing an Existing Diagram
 
-1. Edit `images/fig-X-Y.mmd` directly (never edit the `.png`).
+1. Edit `images/figX-Y.mmd` directly (never edit the `.png`).
 2. Re-render — render only the chapter you changed for speed:
 
    ```bash
